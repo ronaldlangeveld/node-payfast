@@ -29,8 +29,6 @@ async function makePayment() {
     const generatePaymentUrl = await pf.generatePaymentUrl(paymentObject);
     console.log(generatePaymentUrl);
     return generatePaymentUrl;
-    
-
 };
 
 
