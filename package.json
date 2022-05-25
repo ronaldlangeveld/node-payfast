@@ -5,5 +5,12 @@
   "repository": "git@github.com:ronaldlangeveld/payfast-js.git",
   "author": "Ronald Langeveld <hi@ronaldlangeveld.com>",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1"
+  }
 }
