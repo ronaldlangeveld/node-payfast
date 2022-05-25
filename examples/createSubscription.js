@@ -27,7 +27,6 @@ async function makePayment() {
     const hash = pf.createSignature(urlString);
     const paymentObject = pf.createPaymentObject(paymentData, hash);
     const generatePaymentUrl = await pf.generatePaymentUrl(paymentObject);
-    console.log(generatePaymentUrl);
     return generatePaymentUrl;
 };
 
