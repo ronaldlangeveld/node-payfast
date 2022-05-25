@@ -58,3 +58,11 @@ return  generatePaymentUrl;
 };
 
 ```
+
+## Roadmap 🛣
+
+ - [x] Create URL String from payment data
+ - [x] Generate Signature
+ - [x] Sends request with Payment data and returns Payment page URL (Inspired by Stripe)
+ - [ ]  Webhook validation 
+ - [ ]  Split Payments
