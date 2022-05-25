@@ -8,6 +8,9 @@ Expect a lot of breaking changes in the near future.
 
   
 ## Installation
+
+Grab it from the ```/lib``` folder
+
 Will create a NPM / YARN package in future
 
 
