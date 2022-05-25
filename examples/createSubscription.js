@@ -10,29 +10,28 @@ const config = {
 
 const pf = new PayFast(config);
 
-
 var paymentData = {
-    'return_url': 'http://localhost:3000/success',
-    'cancel_url': 'http://localhost:3000/cancel',
-    'notify_url': 'http://localhost:3000/notify',
-    'name_first': 'John',
-    'name_last': 'Doe',
-    'email_address': 'name@example.com',
-    'm_payment_id': 'some_unique_id',
-    'amount': '100.00',
-    'item_name': 'Test Transaction',
-    'item_description': 'A transaction for testing purposes',
+    return_url: 'https://www.ron.com/success',
+    cancel_url: 'https://www.ron.com/cancel',
+    notify_url: 'https://www.ron.com/notify',
+    name_first: 'John',
+    name_last: 'Doe',
+    email_address: 'john@doe.com',
+    amount: '300.00',
+    item_name: 'Boogaloosh',
+    item_description: '1 boog',
 }
 
 async function makePayment() {
-    const pfdata = pf.createPaymentObject(paymentData);
-    const hash = pf.createSignature(pfdata);
-    const url = await pf.generatePaymentUrl(pfdata, hash);
-    console.log(url);
+    const urlString = pf.createStringfromObject(paymentData);
+    const hash = pf.createSignature(urlString);
+    const paymentObject = pf.createPaymentObject(paymentData, hash);
+    const generatePaymentUrl = await pf.generatePaymentUrl(paymentObject);
+    console.log(generatePaymentUrl);
+    return generatePaymentUrl;
     
-    
+
 };
 
 
 makePayment();
-
