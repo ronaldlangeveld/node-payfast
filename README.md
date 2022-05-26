@@ -9,17 +9,14 @@ Expect a lot of breaking changes in the near future.
   
 ## Installation
 
-Grab it from the ```/lib``` folder
-
-Will create a NPM / YARN package in future
-
+```npm install node-payfast```
 
 ##  Usage
 
 ```
 // server.js
 
-import  PayFast  from  "../lib/payfast.js"; 
+const {PayFast} = require('node-payfast');
 // Will be replaced with NPM package in future.
 
 const  config  = {
