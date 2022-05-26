@@ -1,5 +1,5 @@
-import 'dotenv/config';
-import PayFast from "../lib/payfast.js";
+require('dotenv').config()
+const {PayFast} = require('../lib/payfast');
 
 const config = {
     sandbox: true,
@@ -18,8 +18,8 @@ var paymentData = {
     name_last: 'Doe',
     email_address: 'john@doe.com',
     amount: '300.00',
-    item_name: 'Boogaloosh',
-    item_description: '1 boog',
+    item_name: 'Cheese',
+    item_description: '1 block of cheese',
 }
 
 async function makePayment() {
@@ -30,5 +30,12 @@ async function makePayment() {
     return generatePaymentUrl;
 };
 
+const getUrl = async() => {
 
-makePayment();
+    const url = await makePayment();
+    console.log(url);
+    return url;
+
+}
+
+getUrl();
