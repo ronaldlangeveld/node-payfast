@@ -17,7 +17,6 @@ Expect a lot of breaking changes in the near future.
 // server.js
 
 const {PayFast} = require('node-payfast');
-// Will be replaced with NPM package in future.
 
 const  config  = {
 sandbox: true, // Defaults to false
