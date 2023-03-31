@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: '0 0 * * 5'
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
     env:
       ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
       MERCHANT_ID: ${{ secrets.MERCHANT_ID }}
