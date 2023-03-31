@@ -1,4 +1,5 @@
-const { PayFast } = require('../lib/payfast');
+const {PayFast} = require('../lib/payfast');
+const {expect} = require('@jest/globals');
 
 const config = {
     merchant_id: process.env.MERCHANT_ID,
@@ -17,70 +18,69 @@ const paymentData = {
     amount: '300.00', // required
     item_name: 'Cheese', // required
     item_description: '1 block of cheese'
-}
+};
 
-describe('PayFast', () => {
+describe('PayFast', function () {
     let payfast;
 
-    beforeEach(() => {
+    beforeEach(function () {
         payfast = new PayFast(config);
     });
 
-    afterEach(() => {
+    afterEach(function () {
         payfast = null;
     });
 
-    describe('config', () => {
-        it('should have a config object', () => {
+    describe('config', function () {
+        it('should have a config object', function () {
             expect(payfast.config).toBeDefined();
         });
 
-        it('should have a merchant_id property', () => {
-            expect(payfast.config.merchant_id).toEqual(config.merchant_id)
+        it('should have a merchant_id property', function () {
+            expect(payfast.config.merchant_id).toEqual(config.merchant_id);
         });
 
-        it('should have a merchant_key property', () => {
-            expect(payfast.config.merchant_key).toEqual(config.merchant_key)
+        it('should have a merchant_key property', function () {
+            expect(payfast.config.merchant_key).toEqual(config.merchant_key);
         });
 
-        it('should have a passphrase property', () => {
-            expect(payfast.config.passphrase).toEqual(config.passphrase)
+        it('should have a passphrase property', function () {
+            expect(payfast.config.passphrase).toEqual(config.passphrase);
         });
     });
 
-    describe('getMerchantId', () => {
-        it('should return the merchant_id', () => {
+    describe('getMerchantId', function () {
+        it('should return the merchant_id', function () {
             expect(payfast.getMerchantId()).toEqual(config.merchant_id);
         });
     });
 
-    describe('getMerchantKey', () => {
-        it('should return the merchant_key', () => {
+    describe('getMerchantKey', function () {
+        it('should return the merchant_key', function () {
             expect(payfast.getMerchantKey()).toEqual(config.merchant_key);
         });
     });
 
-    describe('getPassPhrase', () => {
-        it('should return the passphrase', () => {
+    describe('getPassPhrase', function () {
+        it('should return the passphrase', function () {
             expect(payfast.getPassPhrase()).toEqual(config.passphrase);
         });
     });
 
-    describe('getApiUrl', () => {
-        it('should return sandbox URL when environment is not production', () => {
+    describe('getApiUrl', function () {
+        it('should return sandbox URL when environment is not production', function () {
             expect(payfast.getApiUrl()).toBe('https://sandbox.payfast.co.za');
         });
 
-        it('should return production URL when sandbox is false', () => {
+        it('should return production URL when sandbox is false', function () {
             payfast.setEnvironmentConfig('production');
             expect(payfast.getApiUrl()).toBe('https://www.payfast.co.za');
             payfast.setEnvironmentConfig('testing');
         });
     });
 
-
-    describe('encodeURIString', () => {
-        it('should return a correctly encoded string', () => {
+    describe('encodeURIString', function () {
+        it('should return a correctly encoded string', function () {
             const testString = 'test string';
             const expectedString = 'test+string';
 
@@ -88,8 +88,8 @@ describe('PayFast', () => {
         });
     });
 
-    describe('createPaymentObject', () => {
-        it('should return an object with the correct properties and values', async () => {
+    describe('createPaymentObject', function () {
+        it('should return an object with the correct properties and values', async function () {
             const signature = 'test_signature';
             const expectedObject = {
                 merchant_id: config.merchant_id,
@@ -102,8 +102,8 @@ describe('PayFast', () => {
         });
     });
 
-    describe('createStringfromObject', () => {
-        it('should return a correctly formatted string', async () => {
+    describe('createStringfromObject', function () {
+        it('should return a correctly formatted string', async function () {
             const expectedString = new URLSearchParams();
             expectedString.append('merchant_id', config.merchant_id);
             expectedString.append('merchant_key', config.merchant_key);
@@ -117,12 +117,12 @@ describe('PayFast', () => {
             expectedString.append('item_name', paymentData.item_name);
             expectedString.append('item_description', paymentData.item_description);
             expectedString.append('passphrase', config.passphrase);
-            await expect(await payfast.createStringfromObject(paymentData)).toBe(expectedString.toString());
+            expect(await payfast.createStringfromObject(paymentData)).toBe(expectedString.toString());
         });
     });
 
-    describe('createSignature', () => {
-        it('should return a correct signature', () => {
+    describe('createSignature', function () {
+        it('should return a correct signature', function () {
             const testString = 'test_string';
             const expectedSignature = '3474851a3410906697ec77337df7aae4';
 
@@ -130,8 +130,8 @@ describe('PayFast', () => {
         });
     });
 
-    describe('generatePaymentUrl', () => {
-        it('should return a payment URL', async () => {
+    describe('generatePaymentUrl', function () {
+        it('should return a payment URL', async function () {
             let paymentInfo = new URLSearchParams();
             paymentInfo.append('merchant_id', config.merchant_id);
             paymentInfo.append('merchant_key', config.merchant_key);

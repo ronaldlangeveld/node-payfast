@@ -28,14 +28,11 @@ async function makePayment() {
     const paymentObject = pf.createPaymentObject(paymentData, hash);
     const generatePaymentUrl = await pf.generatePaymentUrl(paymentObject);
     return generatePaymentUrl;
-};
+}
 
 const getUrl = async() => {
-
     const url = await makePayment();
-    console.log(url);
     return url;
-
 }
 
 getUrl();
