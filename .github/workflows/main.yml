@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ENVIRONMENT: ${{ secret.ENVIRONMENT }}
-      MERCHANT_ID: ${{ secret.MERCHANT_ID }}
-      MERCHANT_KEY: ${{ secret.MERCHANT_KEY }}
-      PASSPHRASE: ${{ secret.PASSPHRASE }}
+      ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+      MERCHANT_ID: ${{ secrets.MERCHANT_ID }}
+      MERCHANT_KEY: ${{ secrets.MERCHANT_KEY }}
+      PASSPHRASE: ${{ secrets.PASSPHRASE }}
 
     steps:
     - uses: actions/checkout@v2
