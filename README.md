@@ -1,15 +1,13 @@
 
 # 💸 node-payfast
+[![CI](https://github.com/ronaldlangeveld/node-payfast/actions/workflows/main.yml/badge.svg)](https://github.com/ronaldlangeveld/node-payfast/actions/workflows/main.yml)
 
 A node library to simplify creating custom integrations with Payfast.
-
-Currently **Work In Progress**. 
-Expect a lot of breaking changes in the near future.
-
   
 ## Installation
 
 ```npm install node-payfast```
+```yarn add node-payfast```
 
 ##  Usage
 
