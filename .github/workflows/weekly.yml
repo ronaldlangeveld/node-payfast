@@ -1,4 +1,4 @@
-name: Testing
+name: Weekly auto test
 
 on:
   schedule:
