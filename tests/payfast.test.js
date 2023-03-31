@@ -1,10 +1,10 @@
 const { PayFast } = require('../lib/payfast');
 
 const config = {
-    merchant_id: '10004305',
-    merchant_key: '3ecue3ddukkm7',
-    passphrase: 'qwertyqwerty',
-    environment: 'testing'
+    merchant_id: process.env.MERCHANT_ID,
+    merchant_key: process.env.MERCHANT_KEY,
+    passphrase: process.env.PASSPHRASE,
+    environment: process.env.ENVIRONMENT
 };
 
 const paymentData = {
@@ -145,6 +145,7 @@ describe('PayFast', () => {
             paymentInfo.append('item_name', paymentData.item_name);
             paymentInfo.append('item_description', paymentData.item_description);
             paymentInfo.append('passphrase', config.passphrase);
+            // this is an E2E test so we have to go through the whole process.
             const hash = payfast.createSignature(paymentInfo.toString());
             const paymentObject = await payfast.createPaymentObject(paymentData, hash);
             const paymentUrl = await payfast.generatePaymentUrl(paymentObject);
