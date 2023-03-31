@@ -2,11 +2,12 @@
 # 💸 node-payfast
 [![CI](https://github.com/ronaldlangeveld/node-payfast/actions/workflows/main.yml/badge.svg)](https://github.com/ronaldlangeveld/node-payfast/actions/workflows/main.yml)
 
-A node library to simplify creating custom integrations with Payfast.
+A node library to simplify creating custom integrations with [Payfast](https://payfast.io).
   
 ## Installation
 
 ```npm install node-payfast```
+
 ```yarn add node-payfast```
 
 ##  Usage
@@ -63,3 +64,19 @@ return  generatePaymentUrl;
  - [x] Sends request with Payment data and returns Payment page URL (Inspired by Stripe)
  - [ ]  Webhook validation 
  - [ ]  Split Payments
+ 
+ 
+# Contributing
+Contributions are welcome! Here's how you can help:
+
+## Bug Reports and Feature Requests
+If you find a bug or want to suggest a new feature, please create an issue on the GitHub repository with a detailed description. Be sure to check if a similar issue or feature request already exists before creating a new one.
+
+## Pull Requests
+If you want to contribute code to this project, you can fork the repository, create a new branch, make your changes, and then create a pull request. Please make sure to write clear commit messages and add appropriate tests for your changes.
+
+## Code Reviews
+Code reviews are an essential part of the development process. If you're interested in reviewing pull requests, please let us know by leaving a comment on the relevant pull request or by reaching out to one of the maintainers.
+
+## Documentation
+Improving the documentation is always appreciated. If you notice any errors or want to suggest improvements, please open an issue or submit a pull request with your changes.
