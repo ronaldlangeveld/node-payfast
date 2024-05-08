@@ -43,6 +43,27 @@ item_description: '1 block of cheese',
 // add extra lines for subscriptions, etc.
 };
 
+// Please use this example below for recurring payments
+const paymentData = {
+      return_url: 'https://www.someurl.com/success',
+      cancel_url: 'https://www.someurl.com/cancel',
+      notify_url: 'https://www.someurl.com/notify',
+      name_first: "John,
+      name_last: 'Doe',
+      email_address: 'john@doe.com',
+      m_payment_id: 'unique_id',
+      amount: '300.00',
+      item_name: 'Basic plan',
+      // add extra lines for subscriptions, etc.
+      email_confirmation: "1",
+      confirmation_address: email,
+      subscription_type: "1",
+      frequency: "3",
+      cycles: "0",
+      subscription_notify_email: "true",
+      subscription_notify_buyer: "true",
+    };
+
 async  function  getPaymentURL() {
 // Keep each function seperate as it may have for future features:
 
