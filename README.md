@@ -27,8 +27,7 @@ passphrase: process.env.PASSPHRASE
 // Initialize a new Payfast instance with your config data.
 const  pf  =  new PayFast(config);
 
-// Very important to keep the order of the parameters as per Payfast's documentation, else it will drive you mad, cause the signature won't validate.
-// I know, it's dumb, but that's how it is till Payfast's dev team fixes it.
+// Very important to keep the order of the parameters as per Payfast's documentation, else the signature won't validate.
 
 var  paymentData  = {
 return_url: 'https://www.someurl.com/success',
